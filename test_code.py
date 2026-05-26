@@ -67,11 +67,11 @@ def run_command(cmd_list):
 # =========================
 # Weak Hash Algorithm -> 使用安全雜湊 (SHA-256 + Salt) 或專用演算法
 # =========================
-def hash_password(password: str) -> str:
-    # 安全：棄用已淘汰的 MD5，改用強固的 SHA-256（實務上推薦 bcrypt 或 argon2）
-    # 這裡示範使用密碼學安全的雜湊
-    salt = b"some_secure_salt_here"
+salt = b"some_secure_salt_here"
+
     return hashlib.pbkdf2_hmac('sha256', password.encode(), salt, 100000).hex()
+
+Make this salt unpredictable.
 
 
 # =========================
